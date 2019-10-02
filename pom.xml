@@ -22,13 +22,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.cafapi</groupId>
-    <artifactId>opensuse-tomcat-image</artifactId>
-    <version>3.6.0-SNAPSHOT</version>
+    <artifactId>opensuse-tomcat-jre11-image</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>openSUSE Tomcat image</name>
+    <name>openSUSE Tomcat JRE 11 image</name>
     <description>A base image for building a Web project.</description>
-    <url>https://github.com/CAFapi/opensuse-tomcat-image</url>
+    <url>https://github.com/CAFapi/opensuse-tomcat-jre11-image</url>
 
     <inceptionYear>2017</inceptionYear>
 
@@ -44,15 +44,20 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
-
+    
     <developers>
         <developer>
-            <id>bhagyashreen</id>
-            <name>Bhagyashree Nigudkar</name>
-            <email>bhagyashree.v.nigudkar@microfocus.com</email>
+            <id>dermot-hardy</id>
+            <name>Dermot Hardy</name>
+            <email>dermot.hardy@microfocus.com</email>
+        </developer>
+        <developer>
+            <id>michael-bryson</id>
+            <name>Michael Bryson</name>
+            <email>michael.bryson@microfocus.com</email>
         </developer>
     </developers>
-
+    
     <properties>
         <copyrightYear>2019</copyrightYear>
         <copyrightNotice>Copyright ${project.inceptionYear}-${copyrightYear} Micro Focus or one of its affiliates.</copyrightNotice>
@@ -89,7 +94,7 @@
                     <autoPull>always</autoPull>
                     <images>
                         <image>
-                            <name>${dockerCafImagePrefix}opensuse-tomcat${dockerProjectVersion}</name>
+                            <name>${dockerCafImagePrefix}opensuse-tomcat-jre11${dockerProjectVersion}</name>
                             <build>
                                 <dockerFileDir>.</dockerFileDir>
                                 <args>
@@ -115,9 +120,9 @@
     </build>
 
     <scm>
-        <connection>scm:git:https://github.com/CAFapi/opensuse-tomcat-image.git</connection>
-        <developerConnection>scm:git:https://github.com/CAFapi/opensuse-tomcat-image.git</developerConnection>
-        <url>https://github.com/CAFapi/opensuse-tomcat-image</url>
+        <connection>scm:git:https://github.com/CAFapi/opensuse-tomcat-jre11-image.git</connection>
+        <developerConnection>scm:git:https://github.com/CAFapi/opensuse-tomcat-jre11-image.git</developerConnection>
+        <url>https://github.com/CAFapi/opensuse-tomcat-jre11-image</url>
     </scm>
 
 </project>
