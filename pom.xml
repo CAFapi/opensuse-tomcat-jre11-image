@@ -44,7 +44,7 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
-    
+
     <developers>
         <developer>
             <id>dermot-hardy</id>
@@ -57,7 +57,7 @@
             <email>michael.bryson@microfocus.com</email>
         </developer>
     </developers>
-    
+
     <properties>
         <copyrightYear>2019</copyrightYear>
         <copyrightNotice>Copyright ${project.inceptionYear}-${copyrightYear} Micro Focus or one of its affiliates.</copyrightNotice>
