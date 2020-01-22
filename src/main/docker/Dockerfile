@@ -52,7 +52,7 @@ RUN chmod +x root/startup/startup.d/*
 #
 # The actual image definition
 #
-FROM cafapi/opensuse-jre11:1
+FROM cafinternal/prereleases:opensuse-jdk11-2.0.0-SNAPSHOT
 
 ENV CATALINA_HOME /usr/share/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
