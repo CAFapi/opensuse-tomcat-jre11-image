@@ -54,9 +54,6 @@ RUN chmod +x root/startup/startup.d/*
 #
 FROM cafapi/opensuse-jre11:2
 
-RUN zypper -n refresh && \
-    zypper -n update
-
 ENV CATALINA_HOME /usr/share/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 WORKDIR $CATALINA_HOME
