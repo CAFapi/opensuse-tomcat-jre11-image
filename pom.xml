@@ -22,11 +22,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.cafapi</groupId>
-    <artifactId>opensuse-tomcat-jre11-image</artifactId>
+    <artifactId>opensuse-tomcat-jre11-image-aggregator</artifactId>
     <version>2.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>openSUSE Tomcat JRE 11 image</name>
+    <name>openSUSE Tomcat JRE 11 image Aggregator</name>
     <description>A base image for building a Web project.</description>
     <url>https://github.com/CAFapi/opensuse-tomcat-jre11-image</url>
 
@@ -56,7 +56,17 @@
             <name>Michael Bryson</name>
             <email>michael.bryson@microfocus.com</email>
         </developer>
+        <developer>
+            <id>thilagavathi-santhoshkumar</id>
+            <name>Thilagavathi Santhoshkumar</name>
+            <email>thilagavathi.santhoshkumar@microfocus.com</email>
+        </developer>
     </developers>
+
+    <modules>
+        <module>caf-logging-tomcat-juli</module>
+        <module>opensuse-tomcat-jre11-image</module>
+    </modules>
 
     <properties>
         <copyrightYear>2020</copyrightYear>
@@ -65,56 +75,92 @@
         <dockerHubOrganization>cafapi</dockerHubOrganization>
         <dockerCafImagePrefix>${dockerImagePrefix}${dockerHubOrganization}${dockerOrgSeperator}</dockerCafImagePrefix>
         <dockerProjectVersion>${dockerVersionSeperator}${project.version}</dockerProjectVersion>
+        <logbackVersion>1.2.3</logbackVersion>
+        <tomcatVersion>9.0.35</tomcatVersion>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-access</artifactId>
+                <version>${logbackVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logbackVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logbackVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>2.9.8</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.cafapi.logging</groupId>
+                <artifactId>caf-logging-common</artifactId>
+                <version>1.2.0-67</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.cafapi.logging</groupId>
+                <artifactId>caf-logging-logback-converters</artifactId>
+                <version>1.2.0-67</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.cafapi.logging</groupId>
+                <artifactId>caf-logging-logback-access-converters</artifactId>
+                <version>1.2.0-67</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.cafapi</groupId>
+                <artifactId>caf-logging-tomcat-juli</artifactId>
+                <version>2.1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.cafapi.util</groupId>
+                <artifactId>util-process-identifier</artifactId>
+                <version>1.16.0-118</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.16</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-text</artifactId>
+                <version>1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat</groupId>
+                <artifactId>tomcat-juli</artifactId>
+                <version>${tomcatVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>${fabric8.docker.maven.version}</version>
-                <executions>
-                    <execution>
-                        <id>docker-build</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>docker-push</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>push</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <autoPull>always</autoPull>
-                    <images>
-                        <image>
-                            <name>${dockerCafImagePrefix}opensuse-tomcat-jre11${dockerProjectVersion}</name>
-                            <build>
-                                <dockerFileDir>.</dockerFileDir>
-                                <args>
-                                    <!-- Labels used for image tagging -->
-                                    <BUILD_NUMBER>${project.version}</BUILD_NUMBER>
-                                    <BUILD_DATE>${maven.build.timestamp}</BUILD_DATE>
-                                    <GIT_REPO>${project.scm.url}</GIT_REPO>
-                                    <GIT_BRANCH>${git.branch}</GIT_BRANCH>
-                                    <GIT_COMMIT>${git.revision}</GIT_COMMIT>
-
-                                    <!-- Enable internet access -->
-                                    <http_proxy>${env.HTTP_PROXY}</http_proxy>
-                                    <https_proxy>${env.HTTPS_PROXY}</https_proxy>
-                                    <no_proxy>${env.NO_PROXY}</no_proxy>
-                                </args>
-                            </build>
-                        </image>
-                    </images>
-                    <verbose>true</verbose>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
