@@ -56,6 +56,11 @@
             <name>Michael Bryson</name>
             <email>michael.bryson@microfocus.com</email>
         </developer>
+        <developer>
+            <id>thilagavathi-santhoshkumar</id>
+            <name>Thilagavathi Santhoshkumar</name>
+            <email>thilagavathi.santhoshkumar@microfocus.com</email>
+        </developer>
     </developers>
 
     <modules>
