@@ -77,11 +77,6 @@
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <scope>runtime</scope>
         </dependency>
@@ -132,7 +127,6 @@
                                     <include>org.slf4j:log4j-over-slf4j</include>
                                     <include>org.apache.tomcat:tomcat-juli</include>
                                     <include>org.slf4j:jcl-over-slf4j</include>
-                                    <include>org.slf4j:slf4j-log4j12</include>
                                     <include>org.slf4j:slf4j-api</include>
                                     <include>ch.qos.logback:logback-classic</include>
                                     <include>ch.qos.logback:logback-core</include>
