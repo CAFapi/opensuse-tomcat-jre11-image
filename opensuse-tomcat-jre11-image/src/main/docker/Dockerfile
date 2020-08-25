@@ -52,6 +52,11 @@ COPY server.xslt .
 RUN cp $TOMCAT_CONF_DIR/server.xml .
 RUN xsltproc -o $TOMCAT_CONF_DIR/server.xml server.xslt server.xml
 
+# Apply the specified transform to the web.xml file
+COPY web.xsl .
+RUN cp $TOMCAT_CONF_DIR/web.xml .
+RUN xsltproc -o $TOMCAT_CONF_DIR/web.xml web.xsl web.xml
+
 # Add in the startup scripts
 COPY startup.d/ root/startup/startup.d/
 RUN chmod +x root/startup/startup.d/*
