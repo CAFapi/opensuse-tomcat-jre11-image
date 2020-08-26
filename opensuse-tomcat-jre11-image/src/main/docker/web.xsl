@@ -26,12 +26,24 @@
         </xsl:copy>
     </xsl:template>
 
-    <!-- Uncomment httpHeaderSecurity servlet config -->
     <xsl:template match="comment()">
         <xsl:choose>
-            <xsl:when test="contains(., 'httpHeaderSecurity')">
+            <!-- Uncomment httpHeaderSecurity filter -->
+            <xsl:when test="contains(., '&lt;filter&gt;') and contains(., 'httpHeaderSecurity')">
                 <xsl:value-of disable-output-escaping="yes" select="." />
             </xsl:when>
+            <!-- Uncomment httpHeaderSecurity filter mapping, adding FORWARD as dispatcher -->
+            <xsl:when test="contains(., '&lt;filter-mapping&gt;') and contains(., 'httpHeaderSecurity')">
+                <xsl:text disable-output-escaping="yes">
+    &lt;filter-mapping&gt;
+        &lt;filter-name&gt;httpHeaderSecurity&lt;/filter-name&gt;
+        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+        &lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;
+        &lt;dispatcher&gt;FORWARD&lt;/dispatcher&gt;
+    &lt;/filter-mapping&gt;
+                </xsl:text>
+            </xsl:when>
+            <!-- Ignore all other comments -->
             <xsl:otherwise>
                 <xsl:copy>
                     <xsl:apply-templates select="." />
