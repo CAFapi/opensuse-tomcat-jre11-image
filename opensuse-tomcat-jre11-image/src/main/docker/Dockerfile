@@ -62,7 +62,7 @@ RUN chmod +x root/startup/startup.d/*
 #
 # The actual image definition
 #
-FROM ${DOCKER_HUB_PUBLIC}/cafapi/prereleases:opensuse-jdk17-1.0.0-SNAPSHOT
+FROM ${DOCKER_HUB_PUBLIC}/cafapi/prereleases:opensuse-jdk17-1.0.0-US369215-SNAPSHOT
 
 RUN zypper -n refresh && \
     zypper -n update && \
