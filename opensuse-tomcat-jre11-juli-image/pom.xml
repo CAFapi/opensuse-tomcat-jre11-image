@@ -57,7 +57,7 @@
                 <configuration>
                     <images>
                         <image>
-                            <name>${dockerCafImagePrefix}opensuse-tomcat-jre11-juli-image${dockerProjectVersion}</name>
+                            <name>${dockerCafImagePrefix}opensuse-tomcat-jre11-juli${dockerProjectVersion}</name>
                             <build>
                                 <dockerFileDir>.</dockerFileDir>
                                 <assembly>
