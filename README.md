@@ -1,10 +1,11 @@
 # openSUSE with Java 11 and Tomcat image
 
-This project builds on the openSUSE Java 11 image [here](https://github.com/CAFapi/opensuse-java11-images) to build a pre-configured Tomcat Docker image.
+This project builds on the openSUSE Java 11 image [here](https://github.com/CAFapi/opensuse-java11-images) to build two pre-configured Tomcat Docker images
+that use two logging frameworks. One of the images uses the Logback logging framework and the other that uses Tomcat JULI logging.
 
-It can be used as a base image for hosting web projects which use Java technologies such as Java Servlets or JavaServer Pages.
+They can be used as a base images for hosting web projects which use Java technologies such as Java Servlets or JavaServer Pages.
 
-Here is an example Dockerfile which uses this image as a base:
+Here is an example Dockerfile which uses one of the images as a base:
 
     FROM cafapi/opensuse-tomcat-jre11:latest
 
