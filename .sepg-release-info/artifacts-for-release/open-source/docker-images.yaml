@@ -1,6 +1,0 @@
-- dockerRepositoryId: cafapi/prereleases
-  imageName: opensuse-tomcat-jre11
-  tag: "2.8.2-614"
-- dockerRepositoryId: cafapi/prereleases
-  imageName: opensuse-tomcat-jre11-juli
-  tag: "2.8.2-614"
