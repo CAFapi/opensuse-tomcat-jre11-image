@@ -23,7 +23,7 @@
 
     <groupId>com.github.cafapi</groupId>
     <artifactId>opensuse-tomcat-jre11-image-aggregator</artifactId>
-    <version>2.10.0-SNAPSHOT</version>
+    <version>2.10.0-650</version>
     <packaging>pom</packaging>
 
     <name>openSUSE Tomcat JRE 11 image Aggregator</name>
@@ -120,7 +120,7 @@
             <dependency>
                 <groupId>com.github.cafapi</groupId>
                 <artifactId>caf-logging-tomcat-juli</artifactId>
-                <version>2.10.0-SNAPSHOT</version>
+                <version>2.10.0-650</version>
             </dependency>
             <dependency>
                 <groupId>com.github.cafapi.util</groupId>
