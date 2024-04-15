@@ -23,7 +23,7 @@
 
     <groupId>com.github.cafapi</groupId>
     <artifactId>opensuse-tomcat-jre11-image-aggregator</artifactId>
-    <version>2.13.1-SNAPSHOT</version>
+    <version>2.14.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>openSUSE Tomcat JRE 11 image Aggregator</name>
@@ -77,7 +77,7 @@
         <dockerCafImagePrefix>${dockerImagePrefix}${dockerHubOrganization}${dockerOrgSeperator}</dockerCafImagePrefix>
         <dockerProjectVersion>${dockerVersionSeperator}${project.version}</dockerProjectVersion>
         <logbackVersion>1.2.3</logbackVersion>
-        <tomcatVersion>9.0.83</tomcatVersion>
+        <tomcatVersion>9.0.87</tomcatVersion>
     </properties>
 
     <dependencyManagement>
@@ -120,7 +120,7 @@
             <dependency>
                 <groupId>com.github.cafapi</groupId>
                 <artifactId>caf-logging-tomcat-juli</artifactId>
-                <version>2.13.1-SNAPSHOT</version>
+                <version>2.14.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>com.github.cafapi.util</groupId>
