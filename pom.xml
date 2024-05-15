@@ -184,7 +184,7 @@
                             <digest>sha256:03c2b7fe78f3db1831a492ca341266eca7efb92f1f4968939308b9d038aba97c</digest>
                         </image>
                         <image>
-                            <repository>${DOCKER_HUB_PUBLIC}/opensuse/leap</repository>
+                            <repository>${dockerHubPublic}/opensuse/leap</repository>
                             <tag>15.5</tag>
                             <digest>sha256:165b2a35380bf408b0939c4198e5b013e9a2db5ccd173fcb82429204b8b2e61a</digest>
                         </image>
