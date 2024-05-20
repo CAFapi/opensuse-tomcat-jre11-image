@@ -78,6 +78,7 @@
         <dockerProjectVersion>${dockerVersionSeperator}${project.version}</dockerProjectVersion>
         <logbackVersion>1.2.3</logbackVersion>
         <tomcatVersion>9.0.87</tomcatVersion>
+        <projectDockerRegistry>opensuse-tomcat-jre11-image-${project.version}.project-registries.local</projectDockerRegistry>
     </properties>
 
     <dependencyManagement>
@@ -161,7 +162,34 @@
     </dependencyManagement>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.github.cafapi.plugins.docker.versions</groupId>
+                    <artifactId>docker-versions-maven-plugin</artifactId>
+                    <version>1.0.0-SNAPSHOT</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>com.github.cafapi.plugins.docker.versions</groupId>
+                <artifactId>docker-versions-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <imageManagement>
+                        <image>
+                            <repository>${dockerHubPublic}/cafapi/opensuse-jre11</repository>
+                            <tag>4.0.0</tag>
+                            <digest>sha256:03c2b7fe78f3db1831a492ca341266eca7efb92f1f4968939308b9d038aba97c</digest>
+                        </image>
+                        <image>
+                            <repository>${dockerHubPublic}/opensuse/leap</repository>
+                            <tag>15.6</tag>
+                        </image>
+                    </imageManagement>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
