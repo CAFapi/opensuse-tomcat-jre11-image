@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright 2017-2024 Open Text.
+    Copyright 2017-2025 Open Text.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
 
     <groupId>com.github.cafapi</groupId>
     <artifactId>opensuse-tomcat-jre11-image-aggregator</artifactId>
-    <version>2.17.0-SNAPSHOT</version>
+    <version>2.16.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>openSUSE Tomcat JRE 11 image Aggregator</name>
@@ -70,7 +70,7 @@
     </modules>
 
     <properties>
-        <copyrightYear>2024</copyrightYear>
+        <copyrightYear>2025</copyrightYear>
         <maven.install.skip>true</maven.install.skip>
         <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
         <dockerHubOrganization>cafapi</dockerHubOrganization>
@@ -121,7 +121,7 @@
             <dependency>
                 <groupId>com.github.cafapi</groupId>
                 <artifactId>caf-logging-tomcat-juli</artifactId>
-                <version>2.17.0-SNAPSHOT</version>
+                <version>2.16.2-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>com.github.cafapi.util</groupId>
@@ -180,8 +180,8 @@
                     <imageManagement>
                         <image>
                             <repository>${dockerHubPublic}/cafapi/opensuse-jre11</repository>
-                            <tag>4.2.2</tag>
-                            <digest>sha256:c7a482989a6c24ab0ce7934adc3f93a15dc1c509256010387838f18a16417432</digest>
+                            <tag>4.2.3</tag>
+                            <digest>sha256:5d7ff4b791332ac13f24b6a0670a84c3fef42aae534d7ef5541079f205cccb25</digest>
                         </image>
                         <image>
                             <repository>${dockerHubPublic}/opensuse/leap</repository>
